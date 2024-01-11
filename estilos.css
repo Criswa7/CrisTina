@@ -5,10 +5,10 @@
  * animation bg-pan-right
  */
 @keyframes bg-pan-right {
-    0% {
+    0%, 100% {
       background-position: 0% 50%;
     }
-    100% {
+    50% {
       background-position: 100% 50%;
     }
   }  
@@ -16,9 +16,9 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-image: linear-gradient(270deg,#cc6aa5,#3e91cc,#2dcca7); /* Degradado */
-    background-size: 600% 100%;
-    animation: bg-pan-right 8s linear infinite;
+    background-image: linear-gradient(270deg,#cc6aa5,#3e91cc,#2dcca7,#cc6aa5); /* Degradado */
+    background-size: 800% 100%;
+    animation: bg-pan-right 16s linear infinite;
 }
 .gallery {
     display: grid;
