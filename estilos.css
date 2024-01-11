@@ -50,12 +50,12 @@ body {
   cursor: pointer;
   font-family: 'Quicksand', sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 1500;
   height: 2.6rem;
   margin-bottom: -4rem;
   outline: 0;
   position: relative;
-  bottom: 26px;
+  bottom: 56px;
   transform-origin: 0% 100%;
   transition: transform 50ms ease-in-out;
   width: 9.5rem;  
