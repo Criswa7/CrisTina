@@ -1,0 +1,79 @@
+.bg-pan-left {
+	animation: bg-pan-left 8s both;
+}
+
+.bg-pan-right {
+	animation: bg-pan-right 8s both;
+}
+
+/*
+ * animation bg-pan-left
+ */
+@keyframes bg-pan-left {
+    0% {
+    background-position: 100% 50%;
+}
+    100% {
+    background-position: 0% 50%;
+}
+}
+@keyframes bg-pan-left {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*
+ * animation bg-pan-right
+ */
+@keyframes bg-pan-right {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }  
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(270deg,#cc6aa5,#3e91cc,#2dcca7); /* Degradado */
+    
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear,right top,left top,from(#cc6aa5),color-stop(#3e91cc),to(#2dcca7));
+    background-size: 600% 100%;
+
+    animation: bg-pan-left 8s both infinite;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 24px;
+    place-content: center;
+    margin-top: 15px;
+}
+.gallery img {
+    width: 240px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease;  
+}
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 640px) {
+    .gallery img{
+            width: 144px;
+            height: 144px;
+        }
+    }
