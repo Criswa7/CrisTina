@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-const button = document.querySelector('.button'); // Selecciona el botón
+const button = document.querySelector('.tip-button'); // Selecciona el botón
 button.addEventListener('click', () => {
   setTimeout(() => {
     window.location.href = 'final.html'; // Redirige a otroArchivo.html después de 3 segundos
