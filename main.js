@@ -15,11 +15,25 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       slider.style.right = '100%';
     }, 1000); // Ajusta el tiempo según tus necesidades
-  });
+  
+    fetch('assets/imagenes.json')
+    .then(response => response.json())
+    .then(data => {
+        const galeria = document.querySelector('.gallery');
+        data.imagenes.forEach(imagen => {
+            const imgElement = document.createElement('img');
+            imgElement.src = 'assets/' + imagen;
+            imgElement.alt = 'Recuerdo';
+            galeria.appendChild(imgElement);
+        });
+    })
+    .catch(error => console.error('Error al cargar las imágenes:', error));
+
+});
 
   document.querySelectorAll('.foto').forEach(item => {
     item.addEventListener('click', event => {
         // Aquí podrías abrir la imagen en un modal o en una vista más grande
-        alert('Imagen clickeada!');
+        alert('Que bonita foto <3!');
     });
 });
