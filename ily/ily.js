@@ -57,14 +57,14 @@ setTimeout(() => {
     
         // Esperar y luego abrir la cortina deslizando de derecha a izquierda
         setTimeout(() => {
-          window.location.href = '../main.html'
-          slider.style.right = '100%'; // Mover la cortina hacia la derecha para abrirla
-          setTimeout(() => {
-            slider.remove(); // Eliminar la cortina
-            setTimeout(() => {
+          window.location.href = '../gallery/gallery.html'
+          // slider.style.right = '100%'; // Mover la cortina hacia la derecha para abrirla
+          // setTimeout(() => {
+          //   slider.remove(); // Eliminar la cortina
+          //   setTimeout(() => {
               
-            }, /* tiempo adecuado para iniciar la carga */);
-          }, 1000); // Ajustar este tiempo según lo necesario
+          //   }, /* tiempo adecuado para iniciar la carga */);
+          // }, 1000); // Ajustar este tiempo según lo necesario
         }, 3000); // Ajustar este tiempo según lo necesario
       }, 2100); // Ajustar este tiempo según lo necesario
   });
