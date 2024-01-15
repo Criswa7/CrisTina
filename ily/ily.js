@@ -100,7 +100,7 @@ function cambiarEstilo() {
 }
 
 // Cambia '1000' por el tiempo que quieras entre cambios, en milisegundos.
-setInterval(cambiarEstilo, 100);
+setInterval(cambiarEstilo, 10);
 
 }, 777);
 
