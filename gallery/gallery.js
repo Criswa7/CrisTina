@@ -31,11 +31,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-  document.querySelectorAll('.foto').forEach(item => {
-    item.addEventListener('click', event => {
-        // Aquí podrías abrir la imagen en un modal o en una vista más grande
-        alert('Que bonita foto <3!');
-    });
+function toggleTheme() {
+  if (document.body.classList.contains("dark"))
+      document.body.classList.remove("dark");
+  else
+      document.body.classList.add("dark");
+}
+
+document.querySelectorAll('.foto').forEach(item => {
+  item.addEventListener('click', event => {
+      // Aquí podrías abrir la imagen en un modal o en una vista más grande
+      alert('Que bonita foto <3!');
+  });
 });
 
 const button = document.querySelector('.tip-button'); // Selecciona el botón
