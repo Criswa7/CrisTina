@@ -14,23 +14,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Después de un tiempo, mover el slider fuera de la pantalla
     setTimeout(() => {
       slider.style.right = '100%';
-    }, 1000); // Ajusta el tiempo según tus necesidades
+    }, 2200); // Ajusta el tiempo según tus necesidades
   
-    fetch('assets/imagenes.json')
+    fetch('../assets/imagenes.json')
     .then(response => response.json())
     .then(data => {
-        const galeria = document.querySelector('.gallery');
-        data.imagenes.forEach(imagen => {
+        const gallery = document.querySelector('.gallery');
+        data.forEach(image => {
             const imgElement = document.createElement('img');
-            imgElement.src = 'assets/' + imagen;
-            imgElement.alt = 'Recuerdo';
-            galeria.appendChild(imgElement);
+            imgElement.src = `assets/${image}`;
+            imgElement.alt = 'Imagen de galería';
+            gallery.appendChild(imgElement);
         });
     })
     .catch(error => console.error('Error al cargar las imágenes:', error));
-
 });
 
+//
+
+
+//
 function toggleTheme() {
   if (document.body.classList.contains("dark"))
       document.body.classList.remove("dark");

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
+  <meta charset="UTF-8">
     <title>CrisTina</title>
-    <link rel="stylesheet" type="text/css" href="./gallery.css">
+    <script src="./scripbg.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      }
+    </script>
+    <link rel="stylesheet" href="./gallery.css">
 </head>
-<body class="bg-pan-left">
+<body>
   <main>
     <div class="relative flex flex-col h-[100vh] items-center justify-center bg-white dark:bg-black transition-bg">
         <div class="absolute inset-0 overflow-hidden">
@@ -20,10 +27,12 @@
             <button onclick="toggleTheme()" class="px-3 py-1 border border-stone-200 rounded-full drop-shadow-sm text-sm text-stone-800 dark:text-white bg-white/40 dark:bg-black/40 backdrop-blur-lg hover:border-stone-300 transition-colors dark:border-stone-500 dark:hover:border-stone-400">Cambiar Tema</button>
         </div>
     </div>
-</main>
+
+    <!-- Galeria -->
     <div class="gallery">
-    <!-- la galeria -->
+      <!-- Fotos -->
     </div>
+    <!-- Botón -->
     <div class="divBtn">
     <button class="tip-button">
         <span class="tip-button__text">Continuar</span>
@@ -36,6 +45,8 @@
         </div>
     </button>
     </div>
-    <script src="./gallery.js"></script>
+  </main>
+
+  <script src="./gallery.js"></script>
 </body>
 </html>

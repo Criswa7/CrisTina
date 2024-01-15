@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Después de un tiempo, mover el slider fuera de la pantalla
   setTimeout(() => {
     slider.style.right = '100%';
-  }, 1000); // Ajusta el tiempo según tus necesidades
+  }, 3000); // Ajusta el tiempo según tus necesidades
 });
 
 setTimeout(() => {
