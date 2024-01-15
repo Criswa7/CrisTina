@@ -2,6 +2,8 @@
 
 body {
     font-family: Inter, sans-serif;
+    display: grid;
+    gap: 86px;
 }
 
 @keyframes jumbo {
@@ -87,7 +89,7 @@ body {
     transition: transform 0.3s ease;  
 }
 .gallery img:hover {
-    transform: scale(1.1);
+    transform: scale(1.5);
 }
 
 .divBtn{
@@ -181,7 +183,7 @@ body {
   transform: translateX(-50%);
   transition: height 250ms ease-in-out 400ms, width 250ms ease-in-out 300ms;
   width: 100%;
-  z-index: 2;  
+  z-index: 3;  
 }
 
 .tip-button::after {
@@ -268,7 +270,7 @@ body {
   opacity: var(--front-y-multiplier);
 }
 
-.coin__middle {  
+.coin__middle {
   background: #737c99;
   transform: translateY(calc(var(--middle-y-multiplier) * 0.31818rem / 2)) scaleY(var(--middle-scale-multiplier));
 }
@@ -321,8 +323,8 @@ body {
   .gallery{
     grid-template-columns: repeat(auto-fit, minmax(144px, 1fr));
   }
-    .gallery img{
-            width: 144px;
-            height: 144px;
-        }
-    }
+  .gallery img{
+    width: 144px;
+    height: 144px;
+  }
+}
