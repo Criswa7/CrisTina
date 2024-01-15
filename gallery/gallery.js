@@ -11,11 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     slider.style.zIndex = '9999'; // Asegurarse de que el slider esté por encima de todo
     document.body.appendChild(slider);
   
-    // Después de un tiempo, mover el slider fuera de la pantalla
-    setTimeout(() => {
-      slider.style.right = '100%';
-    }, 2200); // Ajusta el tiempo según tus necesidades
-  
+    //Se renderizan las imagenes
     fetch('../assets/imagenes.json')
     .then(response => response.json())
     .then(data => {
@@ -23,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Acceder a la propiedad 'imagenes' del objeto JSON
         data.imagenes.forEach(image => {
             const imgElement = document.createElement('img');
-            imgElement.src = `assets/${image}`;
+            imgElement.src = `../assets/${image}`;
             imgElement.alt = 'Imagen de galería';
             gallery.appendChild(imgElement);
         });
@@ -31,6 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch(error => {
         console.error('Error al cargar las imágenes:', error);
     });
+
+    // Después de un tiempo, mover el slider fuera de la pantalla
+    setTimeout(() => {
+      slider.style.right = '100%';
+    }, 2200); // Ajusta el tiempo según tus necesidades
+  
 });
 
 //
