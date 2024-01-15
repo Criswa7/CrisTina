@@ -56,7 +56,7 @@ document.querySelectorAll('.foto').forEach(item => {
 const button = document.querySelector('.tip-button'); // Selecciona el botón
 button.addEventListener('click', () => {
   setTimeout(() => {
-    window.location.href = 'final.html'; // Redirige a otroArchivo.html después de 3 segundos
+    window.location.href = '../final.html'; // Redirige a otroArchivo.html después de 3 segundos
   }, 3000);
 });
 
