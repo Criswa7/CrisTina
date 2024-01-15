@@ -124,7 +124,7 @@
 }
 
 #texto-animado{
-  font-size: 24px;
+  font-size: 55px;
 }
 
 *, *:before, *:after {
@@ -151,13 +151,13 @@
 html, body {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   background-color: #FFC568;
   font-size: 62.5%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (max-width: 520px) {
   html, body {
