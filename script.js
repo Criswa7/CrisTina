@@ -1,25 +1,97 @@
 let isInitialAnimationDone = false;
 
-document.addEventListener('mousemove', function(e) {
-    if (isInitialAnimationDone) return; // Evita la estela del cursor después de la primera animación
-        const star = document.createElement('div');
-        star.className = 'star';
-        document.body.appendChild(star);
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext('2d');
 
-        // Establece el tamaño y la posición de la estrella
-        star.style.left = e.pageX + 'px';
-        star.style.top = e.pageY + 'px';
-        star.style.width = '7px';
-        star.style.height = '7px';
+// for intro motion
+let mouseMoved = false;
 
-        // Animación para desvanecer y eliminar la estrella
-        setTimeout(function() {
-            star.style.opacity = '0';
-            setTimeout(function() {
-                star.remove();
-            }, 500);
-        }, 1000);
+const pointer = {
+    x: .5 * window.innerWidth,
+    y: .5 * window.innerHeight,
+}
+const params = {
+    pointsNumber: 40,
+    widthFactor: .3,
+    mouseThreshold: .6,
+    spring: .4,
+    friction: .5
+};
+
+const trail = new Array(params.pointsNumber);
+for (let i = 0; i < params.pointsNumber; i++) {
+    trail[i] = {
+        x: pointer.x,
+        y: pointer.y,
+        dx: 0,
+        dy: 0,
+    }
+}
+
+window.addEventListener("click", e => {
+    updateMousePosition(e.pageX, e.pageY);
 });
+window.addEventListener("mousemove", e => {
+    mouseMoved = true;
+    updateMousePosition(e.pageX, e.pageY);
+});
+window.addEventListener("touchmove", e => {
+    mouseMoved = true;
+    updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
+});
+
+function updateMousePosition(eX, eY) {
+    pointer.x = eX;
+    pointer.y = eY;
+}
+
+setupCanvas();
+update(0);
+window.addEventListener("resize", setupCanvas);
+
+
+function update(t) {
+
+    // for intro motion
+    if (!mouseMoved) {
+        pointer.x = (.5 + .3 * Math.cos(.002 * t) * (Math.sin(.005 * t))) * window.innerWidth;
+        pointer.y = (.5 + .2 * (Math.cos(.005 * t)) + .1 * Math.cos(.01 * t)) * window.innerHeight;
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    trail.forEach((p, pIdx) => {
+        const prev = pIdx === 0 ? pointer : trail[pIdx - 1];
+        const spring = pIdx === 0 ? .4 * params.spring : params.spring;
+        p.dx += (prev.x - p.x) * spring;
+        p.dy += (prev.y - p.y) * spring;
+        p.dx *= params.friction;
+        p.dy *= params.friction;
+        p.x += p.dx;
+        p.y += p.dy;
+    });
+
+    ctx.lineCap = "round";
+	 ctx.beginPath();
+    ctx.moveTo(trail[0].x, trail[0].y);
+
+    for (let i = 1; i < trail.length - 1; i++) {
+        const xc = .5 * (trail[i].x + trail[i + 1].x);
+        const yc = .5 * (trail[i].y + trail[i + 1].y);
+        ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
+        ctx.lineWidth = params.widthFactor * (params.pointsNumber - i);
+        ctx.stroke();
+    }
+    ctx.lineTo(trail[trail.length - 1].x, trail[trail.length - 1].y);
+    ctx.stroke();
+    
+    window.requestAnimationFrame(update);
+}
+
+function setupCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
 
 document.addEventListener('click', function(e) {
     if (isInitialAnimationDone) return; // Evita que se vuelva a ejecutar la animación de expansión
@@ -61,15 +133,16 @@ document.addEventListener('click', function(e) {
     }, 100);
     
         // Esperar y luego abrir la cortina deslizando de derecha a izquierda
-        setTimeout(() => {
-          window.location.href = './ily/index.html'
-          slider.style.right = '100%'; // Mover la cortina hacia la derecha para abrirla
-          document.querySelector('.inicio').classList.add('inactive'); // Ocultar la sección inicial
-          setTimeout(() => {
-            slider.remove(); // Eliminar la cortina
-            // Aquí iría el código para revelar la animación "I love you"
-          }, 1000); // Ajustar este tiempo según lo necesario
-        }, 3000); // Ajustar este tiempo según lo necesario
-      }, 2100); // Ajustar este tiempo según lo necesario
+    setTimeout(() => {
+      document.querySelector('.inicio').classList.add('inactive'); // Ocultar la sección inicial
+      //AQUI SE EJECUTARIA EL I Love You
+      document.getElementById("ily-container").classList.remove("inactive");
+      window.location.href = './ily/ily.html'
+      // slider.style.right = '100%'; // Mover la cortina hacia la derecha para abrirla
+      // setTimeout(() => {
+      // slider.remove(); // Eliminar la cortina
+      //   // Aquí iría el código para revelar la animación "I love you"
+      // }, 1000); // Ajustar este tiempo según lo necesario
+    }, 3000); // Ajustar este tiempo según lo necesario
+  }, 2100); // Ajustar este tiempo según lo necesario
 });
-
