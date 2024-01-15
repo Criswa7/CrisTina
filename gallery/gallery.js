@@ -20,14 +20,17 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.json())
     .then(data => {
         const gallery = document.querySelector('.gallery');
-        data.forEach(image => {
+        // Acceder a la propiedad 'imagenes' del objeto JSON
+        data.imagenes.forEach(image => {
             const imgElement = document.createElement('img');
             imgElement.src = `assets/${image}`;
             imgElement.alt = 'Imagen de galería';
             gallery.appendChild(imgElement);
         });
     })
-    .catch(error => console.error('Error al cargar las imágenes:', error));
+    .catch(error => {
+        console.error('Error al cargar las imágenes:', error);
+    });
 });
 
 //
