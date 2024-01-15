@@ -70,6 +70,40 @@ setTimeout(() => {
   });
 }, 5555);
 
+
+setTimeout(() => {
+const palabras = ["Valentina", "Tina", "Tini", "Tinita", "Valen", "Marinita"];
+const fuentes = [
+  "BadScript", "Caveat", "Changa", "DancingScript", "Domine", 
+  "Freehand", "GreatVibes", "IndieFlower", "Lemon", "Lobster", "OutwardBlock",
+"PermanentMarker", "PressStart2P", "RubikBurned", "Sacramento",
+"Satisfy", "ShadowsIntoLight", "Silkscreen", "Tangerine",
+"Teko", "Ultra", "Vercetti", "WorkSans", "YatraOne"
+];
+
+let indicePalabra = 0;
+let indiceFuente = 0;
+
+function cambiarEstilo() {
+    const elemento = document.getElementById("texto-animado"); // Reemplaza con el ID de tu elemento
+    elemento.textContent = palabras[indicePalabra];
+    elemento.style.fontFamily = fuentes[indiceFuente];
+
+    indiceFuente++;
+    if (indiceFuente >= fuentes.length) {
+        indiceFuente = 0;
+        indicePalabra++;
+        if (indicePalabra >= palabras.length) {
+            indicePalabra = 0;
+        }
+    }
+}
+
+// Cambia '1000' por el tiempo que quieras entre cambios, en milisegundos.
+setInterval(cambiarEstilo, 100);
+
+}, 777);
+
 const qs = document.querySelector.bind(document);
 const easingHeart = mojs.easing.path('M0,100C2.9,86.7,33.6-7.3,46-7.3s15.2,22.7,26,22.7S89,0,100,0');
 

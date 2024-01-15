@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'BadScript';
+  src: url('fonts/BadScript') format('truetype');
+}
+@font-face {
+  font-family: 'Caveat';
+  src: url('fonts/Caveat') format('truetype');
+}
+@font-face {
+  font-family: 'Changa';
+  src: url('fonts/Changa') format('truetype');
+}
+@font-face {
+  font-family: 'Changa-VariableFont';
+  src: url('fonts/Changa-VariableFont') format('truetype');
+}
+
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
