@@ -100,7 +100,7 @@ function cambiarEstilo() {
 }
 
 // Cambia '1000' por el tiempo que quieras entre cambios, en milisegundos.
-setInterval(cambiarEstilo, 50);
+setInterval(cambiarEstilo, 255);
 
 const qs = document.querySelector.bind(document);
 const easingHeart = mojs.easing.path('M0,100C2.9,86.7,33.6-7.3,46-7.3s15.2,22.7,26,22.7S89,0,100,0');

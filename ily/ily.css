@@ -1,20 +1,131 @@
 @font-face {
   font-family: 'BadScript';
-  src: url('fonts/BadScript') format('truetype');
-}
-@font-face {
-  font-family: 'Caveat';
-  src: url('fonts/Caveat') format('truetype');
-}
-@font-face {
-  font-family: 'Changa';
-  src: url('fonts/Changa') format('truetype');
-}
-@font-face {
-  font-family: 'Changa-VariableFont';
-  src: url('fonts/Changa-VariableFont') format('truetype');
+  src: url('../fonts/BadScript-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Caveat'; 
+  src: url('../fonts/Caveat-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Changa';
+  src: url('../fonts/Changa-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Changa';
+  src: url('../fonts/Changa-VariableFont_wght.ttf') format('truetype'); 
+}
+
+@font-face {
+  font-family: 'DancingScript';
+  src: url('../fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Domine';
+  src: url('../fonts/Domine-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Freehand';
+  src: url('../fonts/Freehand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GreatVibes'; 
+  src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IndieFlower';
+  src: url('../fonts/IndieFlower-Regular.ttf') format('truetype'); 
+}
+
+@font-face {
+  font-family: 'Lemon';
+  src: url('../fonts/Lemon-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lobster';
+  src: url('../fonts/Lobster-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OutwardBlock'; 
+  src: url('../fonts/outward-block.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PermanentMarker';
+  src: url('../fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PressStart2P';
+  src: url('../fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RubikBurned';
+  src: url('../fonts/RubikBurned-Regular.ttf') format('truetype');  
+}
+
+@font-face {
+  font-family: 'Sacramento';
+  src: url('../fonts/Sacramento-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Satisfy';
+  src: url('../fonts/Satisfy-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ShadowsIntoLight';
+  src: url('../fonts/ShadowsIntoLight-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('../fonts/Silkscreen-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Tangerine';
+  src: url('../fonts/Tangerine-Regular.ttf') format('truetype');  
+}
+
+@font-face {
+  font-family: 'Teko';
+  src: url('../fonts/Teko-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ultra';
+  src: url('../fonts/Ultra-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Vercetti';
+  src: url('../fonts/Vercetti-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: url('../fonts/WorkSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'YatraOne';
+  src: url('../fonts/YatraOne-Regular.ttf') format('truetype');
+}
+
+#texto-animado{
+  font-size: 24px;
+}
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -40,11 +151,13 @@
 html, body {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #FFC568;
   font-size: 62.5%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 @media screen and (max-width: 520px) {
   html, body {
