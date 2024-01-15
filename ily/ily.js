@@ -47,7 +47,7 @@ setTimeout(() => {
         slider.style.height = '100%';
         slider.style.backgroundColor = '#ffc568'; // Color actualizado
         slider.style.transition = 'right 1s ease-out';
-        slider.style.zIndex= '10';
+        slider.style.zIndex= '9999';
         document.body.appendChild(slider);
     
         // Cerrar la cortina deslizando de derecha a izquierda
@@ -100,7 +100,7 @@ function cambiarEstilo() {
 }
 
 // Cambia '1000' por el tiempo que quieras entre cambios, en milisegundos.
-setInterval(cambiarEstilo, 255);
+setInterval(cambiarEstilo, 254);
 
 const qs = document.querySelector.bind(document);
 const easingHeart = mojs.easing.path('M0,100C2.9,86.7,33.6-7.3,46-7.3s15.2,22.7,26,22.7S89,0,100,0');
