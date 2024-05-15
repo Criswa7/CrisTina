@@ -1,0 +1,63 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.cupones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cupon {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* para la animacion */
+}
+
+.cupon:hover {
+  transform: rotate(10deg); /* animacion de giro al pasar el mouse */
+}
+
+.cupon .icono {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.terminos {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f0ff; /* Un color suave */
+  border-radius: 10px;
+}
+
+.cupon .rasgado {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cupon .infinito {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: red; /* Puedes cambiar el color */
+}
