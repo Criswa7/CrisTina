@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { supabase } from './services/supabase'
+import MainLayout from './components/layout/MainLayout'
 import Landing from './pages/Landing'
 import Home from './pages/Home'
 
@@ -9,23 +10,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Verificar el estado de autenticación al cargar
     checkUser()
-
-    // Suscribirse a cambios en la autenticación
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
-        setIsAuthenticated(true)
-      }
-      if (event === 'SIGNED_OUT') {
-        setIsAuthenticated(false)
-      }
+      setIsAuthenticated(event === 'SIGNED_IN')
     })
 
-    // Cleanup del subscription
-    return () => {
-      subscription?.unsubscribe()
-    }
+    return () => subscription?.unsubscribe()
   }, [])
 
   async function checkUser() {
@@ -33,26 +23,32 @@ function App() {
       const { data: { session } } = await supabase.auth.getSession()
       setIsAuthenticated(!!session)
     } catch (error) {
-      console.error('Error checking auth status:', error)
+      console.error('Error verificando estado de autenticación:', error)
     } finally {
       setIsLoading(false)
     }
   }
 
   if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">
-      <p>Cargando...</p>
-    </div>
+    return (
+      <MainLayout>
+        <div className="flex items-center justify-center min-h-screen">
+          <p>Cargando...</p>
+        </div>
+      </MainLayout>
+    )
   }
 
   return (
     <Router>
-      <Routes>
-        <Route 
-          path="/" 
-          element={isAuthenticated ? <Home /> : <Landing />} 
-        />
-      </Routes>
+      <MainLayout>
+        <Routes>
+          <Route 
+            path="/" 
+            element={isAuthenticated ? <Home /> : <Landing />} 
+          />
+        </Routes>
+      </MainLayout>
     </Router>
   )
 }
