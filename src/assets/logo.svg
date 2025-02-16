@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <!-- Fondo del logo -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FDF2F8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FCE7F3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Corazón principal -->
+  <path d="M100 85 C60 35, 10 35, 10 60 C10 85, 50 85, 100 30 C150 85, 190 85, 190 60 C190 35, 140 35, 100 85" 
+        fill="#FB7185" opacity="0.9"/>
+  
+  <!-- Texto "Cris" -->
+  <text x="45" y="65" 
+        font-family="Parisienne, cursive" 
+        font-size="28" 
+        fill="#BE185D"
+        transform="rotate(-10, 45, 65)">
+    Cris
+  </text>
+  
+  <!-- Texto "Tina" -->
+  <text x="95" y="65" 
+        font-family="Parisienne, cursive" 
+        font-size="28" 
+        fill="#BE185D"
+        transform="rotate(10, 95, 65)">
+    Tina
+  </text>
+  
+  <!-- Pequeños detalles decorativos -->
+  <circle cx="85" cy="45" r="2" fill="#BE185D" opacity="0.6"/>
+  <circle cx="115" cy="45" r="2" fill="#BE185D" opacity="0.6"/>
+  
+  <!-- Estrellitas decorativas -->
+  <path d="M40 30 L42 32 L44 30 L42 28 Z" fill="#BE185D" opacity="0.6"/>
+  <path d="M160 30 L162 32 L164 30 L162 28 Z" fill="#BE185D" opacity="0.6"/>
+  <path d="M100 20 L102 22 L104 20 L102 18 Z" fill="#BE185D" opacity="0.6"/>
+</svg>
