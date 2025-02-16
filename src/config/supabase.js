@@ -18,5 +18,6 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 // Tablas de la base de datos
 export const TABLES = {
   AUTH_QUESTIONS: 'auth_questions', //Pregunta de verificacion
-  MEDIA_ASSETS: 'media_assets' //Recursos multimedia
+  MEDIA_ASSETS: 'media_assets', //Recursos multimedia
+  WATCH_PARTY: 'watch_party' // Manejar la URL de la Crunchyfiesta
 }
