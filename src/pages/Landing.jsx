@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { supabase, TABLES } from '../services/supabase'
+import { supabase, TABLES } from '../config/supabase'
 import VerificationForm from '../components/VerificationForm'
 import WelcomeAnimation from '../components/animations/WelcomeAnimation'
 
@@ -9,6 +9,7 @@ const Landing = () => {
   const [question, setQuestion] = useState('')
   const [isVerifying, setIsVerifying] = useState(false)
   const [error, setError] = useState('')
+  const [showVerification, setShowVerification] = useState(true)
   const [showAnimation, setShowAnimation] = useState(false)
 
   useEffect(() => {
@@ -43,7 +44,10 @@ const Landing = () => {
       if (error) throw error
 
       if (data.answer.toLowerCase() === submittedAnswer.toLowerCase().trim()) {
-        setShowAnimation(true)
+        setShowVerification(false)
+        setTimeout(() => {
+          setShowAnimation(true)
+        }, 500) // Pequeño delay para la transición
       } else {
         setError('Respuesta incorrecta')
       }
@@ -57,7 +61,7 @@ const Landing = () => {
 
   return (
     <AnimatePresence mode="wait">
-      {!showAnimation ? (
+      {showVerification && (
         <VerificationForm
           question={question}
           answer={answer}
@@ -66,9 +70,8 @@ const Landing = () => {
           isVerifying={isVerifying}
           onSubmit={handleVerification}
         />
-      ) : (
-        <WelcomeAnimation />
       )}
+      {showAnimation && <WelcomeAnimation />}
     </AnimatePresence>
   )
 }

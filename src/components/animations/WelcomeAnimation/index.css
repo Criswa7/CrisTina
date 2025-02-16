@@ -1,0 +1,117 @@
+/* Contenedor principal del botón y la flecha de TAP */
+.button-container {
+    position: absolute;
+    top: calc(50% + 120px);
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 60;
+  }
+  
+  /* Estilo del botón "Entrar" */
+  .enter-button {
+    background: #ffffff;
+    color: #000000;
+    padding: 12px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .enter-button:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* Contenedor de la flecha y del texto TAP */
+  .arrow-tap {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 1s;
+  }
+  
+  /* Flecha animada */
+  .arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #000000;
+    margin-bottom: 5px;
+    animation: bounce 1s infinite;
+  }
+  
+  /* Contenedor de los textos TAP */
+  .tap-text {
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .tap-text span {
+    display: block;
+    opacity: 0;
+  }
+  
+  .tap-text span:nth-child(1) {
+    animation: sequentialTap1 1s infinite linear;
+  }
+  
+  .tap-text span:nth-child(2) {
+    animation: sequentialTap2 1s infinite linear;
+  }
+  
+  .tap-text span:nth-child(3) {
+    animation: sequentialTap3 1s infinite linear;
+  }
+  
+  /* Animación de rebote para la flecha */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+  
+  /* Animación para desvanecer suavemente el contenedor de TAP */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Animación para TAP 1 */
+  @keyframes sequentialTap1 {
+    0% { opacity: 0; }      
+    8% { opacity: 1; }     
+    80% { opacity: 1; }    
+    90% { opacity: 0; }    
+    100% { opacity: 0; }
+  }
+  
+  /* Animación para TAP 2 */
+  @keyframes sequentialTap2 {
+    0% { opacity: 0; }
+    30% { opacity: 0; }
+    33% { opacity: 1; }    
+    70% { opacity: 1; }
+    80% { opacity: 0; }    
+    100% { opacity: 0; }
+  }
+  
+  /* Animación para TAP 3 */
+  @keyframes sequentialTap3 {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    48% { opacity: 1; }    
+    65% { opacity: 1; }
+    75% { opacity: 0; }    
+    100% { opacity: 0; }
+  }

@@ -53,7 +53,7 @@ const VerificationForm = ({
                      focus:ring-offset-2 transition-colors shadow-sm
                      disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isVerifying ? 'Verificando...' : 'Entrar 💝'}
+            {isVerifying ? 'Verificando...' : 'Validar 💝'}
           </button>
         </form>
       </div>
