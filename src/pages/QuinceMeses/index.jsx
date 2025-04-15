@@ -302,7 +302,7 @@ const QuinceMeses = () => {
             onClick={startPlayback}
             className="start-button"
           >
-            Comenzar Experiencia
+            o.O
           </button>
         </div>
       )}
