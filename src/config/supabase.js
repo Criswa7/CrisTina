@@ -1,7 +1,3 @@
-/**
- * Configuración y cliente de Supabase
- * Este archivo maneja la conexión con la base de datos Supabase
- */
 import { createClient } from '@supabase/supabase-js'
 
 // Variables de entorno para la configuración de Supabase
