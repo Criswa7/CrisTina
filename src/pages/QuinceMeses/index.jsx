@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 
-// Importar audio
-import audioSrc from '../../assets/mojandoasientos/audio/mojandoasientos.mp3';
+// Importar audio (esto también deberías moverlo a la carpeta public)
+import audioSrc from '/assets/mojandoasientos/audio/mojandoasientos.mp3';
 
 const QuinceMeses = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,8 +14,8 @@ const QuinceMeses = () => {
   const audioRef = useRef(null);
   const messageTimerRef = useRef(null);
   
-  // Base para imágenes (ruta relativa)
-  const IMAGE_BASE_PATH = '../../assets/mojandoasientos/lyrics/';
+  // Base para imágenes (usando rutas absolutas desde la raíz)
+  const IMAGE_BASE_PATH = '/assets/mojandoasientos/lyrics/';
   
   // Mensaje final dividido en partes para la animación
   const finalMessage = [
@@ -84,24 +84,13 @@ const QuinceMeses = () => {
     // Precargamos las imágenes para que aparezcan instantáneamente
     Object.values(imageFiles).forEach(file => {
       try {
-        // Usamos importación dinámica para precargar
         const img = new Image();
-        img.src = new URL(`${IMAGE_BASE_PATH}${file}`, import.meta.url).href;
+        img.src = `${IMAGE_BASE_PATH}${file}`;
       } catch (error) {
         console.error(`Error precargando imagen ${file}:`, error);
       }
     });
   }, []);
-  
-  // Función para obtener la URL completa de la imagen
-  const getImageUrl = (filename) => {
-    try {
-      return new URL(`${IMAGE_BASE_PATH}${filename}`, import.meta.url).href;
-    } catch (error) {
-      console.error(`Error obteniendo URL para ${filename}:`, error);
-      return '';
-    }
-  };
   
   // Timestamps para cada imagen (en segundos)
   const lyricTimings = [
@@ -314,7 +303,7 @@ const QuinceMeses = () => {
           <div className="image-container">
             {currentImageIndex && (
               <img 
-                src={getImageUrl(imageFiles[currentImageIndex])}
+                src={`${IMAGE_BASE_PATH}${imageFiles[currentImageIndex]}`}
                 alt="Letra de canción"
                 className="lyric-image"
               />
